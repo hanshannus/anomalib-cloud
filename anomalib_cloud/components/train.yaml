@@ -1,0 +1,63 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: train_anomalib
+display_name: Train Anomaly Model
+version: 0.0.11
+tags:
+  group: cv
+  domain: anomaly-detection
+description: >
+  Train Anomalib models.
+  
+  Provide a config and a data directory to start a training job on AzureML.
+  
+  Parameters:
+  -----------
+  config: uri_file
+    URI of configuration file.
+  data_dir: uri_folder
+    URI of data directory.
+  ckpt_path: uri_file (optional)
+    URI of previous training checkpoint file.
+  max_epochs: int (optional)
+    Maximum number of training epochs.
+  output_dir: uri_folder
+    URI of directory where training outputs are saved.
+
+inputs:
+  config:
+    type: uri_file
+    optional: true
+  data_dir: 
+    type: uri_folder
+  checkpoint:
+    type: uri_file
+    optional: true
+  # quick access parameters to overwrite config file
+  max_epochs:
+    type: integer
+    optional: true
+
+outputs:
+  output_dir:
+    type: uri_folder
+    mode: rw_mount
+  model_dir:
+    type: uri_folder
+    mode: rw_mount
+    optional: true
+
+code: ../train
+environment:
+  build: 
+    path: ../docker
+
+command: >-
+  python command.py
+  --data_dir ${{inputs.data_dir}}
+  --config ${{inputs.config}}
+  --checkpoint ${{inputs.checkpoint}}
+  $[[--max_epochs ${{inputs.max_epochs}}]]
+  --model_dir ${{outputs.model_dir}}
+  --output_dir ${{outputs.output_dir}}

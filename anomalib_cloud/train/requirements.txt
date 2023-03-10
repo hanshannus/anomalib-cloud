@@ -1,0 +1,2 @@
+mlflow
+git+https://github.com/hanshannus/anomalib-tools.git@main

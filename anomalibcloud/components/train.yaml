@@ -9,9 +9,9 @@ tags:
   domain: anomaly-detection
 description: >
   Train Anomalib models.
-  
+
   Provide a config and a data directory to start a training job on AzureML.
-  
+
   Parameters:
   -----------
   config: uri_file
@@ -29,7 +29,7 @@ inputs:
   config:
     type: uri_file
     optional: true
-  data_dir: 
+  data_dir:
     type: uri_folder
   checkpoint:
     type: uri_file
@@ -50,7 +50,7 @@ outputs:
 
 code: ../train
 environment:
-  build: 
+  build:
     path: ../docker
 
 command: >-

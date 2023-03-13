@@ -9,6 +9,6 @@ def load_all(client: MLClient):
     ----------
     client : MLClient
         Azure ML workspace client.
-    """    
+    """
     for component in Path(__file__).parent.glob("*.y*ml"):
         client.components.create_or_update(component)

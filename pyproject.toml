@@ -1,21 +1,28 @@
 [tool.poetry]
-name = "anomalib_cloud"
-version = "0.0.1"
-authors = ["Johannes Hecher <johannes.hecher@crayon.com>"]
-description = ""
-packages = [
-    { include = "anomalib_cloud" }
-]
+name = "anomalibcloud"
+version = "0.0.2"
+authors = ["Johannes Hecher"]
+description = "Run anomalib traing on AWS and Azure"
 
 [tool.poetry.dependencies]
 python = "^3.8.1"
-anomalib_tools = { git = "https://github.com/hanshannus/anomalib-tools.git", branch = "main" }
+azure-ai-ml = "^1.4.0"
+azure-identity = "^1.12.0"
+boto3 = "^1.26.89"
+sagemaker = "^2.137.0"
+# install custom anomalig tools
+# from branch
+#anomalibtools = { git = "https://github.com/hanshannus/anomalib-tools.git", branch = "main" }
+# from release
+#anomalibtools = { url = "https://github.com/hanshannus/anomalib-tools/archive/refs/tags/v0.1.2.tar.gz" }
+anomalibtools = { url = "https://github.com/hanshannus/anomalib-tools/releases/download/v0.1.2/anomalibtools-0.1.2-py3-none-any.whl" }
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.0.0"
 black = "^23.1.0"
 flake8 = "^6.0.0"
 pre-commit = "^3.1.1"
+
 
 [build-system]
 requires = ["setuptools", "poetry-core>=1.0.0"]

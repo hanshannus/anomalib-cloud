@@ -131,3 +131,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /poetry.lock
+
+# Azure machine learning settings
+.azureml

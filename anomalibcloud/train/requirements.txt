@@ -1,0 +1,2 @@
+mlflow
+https://github.com/hanshannus/anomalib-tools/releases/download/v0.1.2/anomalibtools-0.1.2-py3-none-any.whl

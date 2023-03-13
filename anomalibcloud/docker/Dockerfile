@@ -5,4 +5,4 @@ RUN apt-get update && apt-get install -y \
 # install python packages
 RUN pip install --upgrade pip
 RUN pip install azure-ai-ml mldesigner azureml-mlflow wandb \
-    git+https://github.com/hanshannus/anomalib-tools.git@main
+    https://github.com/hanshannus/anomalib-tools/releases/download/v0.1.2/anomalibtools-0.1.2-py3-none-any.whl
